@@ -12,7 +12,6 @@ import java.util.Comparator;
 import java.util.List;
 
 import org.folio.circulation.domain.Holdings;
-import org.folio.circulation.domain.Instance;
 import org.folio.circulation.domain.Item;
 import org.folio.circulation.domain.ItemStatus;
 import org.folio.circulation.domain.LastCheckIn;
@@ -77,12 +76,17 @@ public class ItemsInTransitReport {
 
     ServicePoint inTransitDestinationServicePoint = reportContext.getServicePoints()
       .get(item.getInTransitDestinationServicePointId());
-    ServicePoint lastCheckInServicePoint = reportContext.getServicePoints()
-      .get(item.getLastCheckInServicePointId().toString());
 
-    item = item
-      .updateLastCheckInServicePoint(lastCheckInServicePoint)
-      .updateDestinationServicePoint(inTransitDestinationServicePoint);
+    ServicePoint lastCheckInServicePoint = null;
+
+    if (item.getLastCheckInServicePointId() != null) {
+      item = item
+        .updateLastCheckInServicePoint(lastCheckInServicePoint)
+        .updateDestinationServicePoint(inTransitDestinationServicePoint);
+    } else {
+      item = item
+        .updateDestinationServicePoint(inTransitDestinationServicePoint);
+    }
 
     final JsonObject entry = new JsonObject();
 

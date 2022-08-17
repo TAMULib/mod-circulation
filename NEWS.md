@@ -1,3 +1,7 @@
+## 23.0.10.tamu.1 2022-08-19
+
+* Allow for items to not previously have a last checked out service point
+
 ## 23.0.10 2022-06-27
 
 * Provide backward compatibility for legacy clients of request creation API (CIRC-1546)
