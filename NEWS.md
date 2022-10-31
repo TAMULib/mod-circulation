@@ -1,3 +1,11 @@
+## 23.0.11.tamu.1 2022-10-31
+
+* Merge upstream into TAMU customizations
+
+## 23.0.11 2022-07-08
+
+* Age to lost loans with Actual cost enabled in the Lost item fee policy (CIRC-1557)
+
 ## 23.0.10.tamu.1 2022-08-19
 
 * Allow for items to not previously have a last checked out service point
